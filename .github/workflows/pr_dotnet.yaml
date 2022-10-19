@@ -22,7 +22,7 @@ jobs:
           VALIDATE_ALL_CODEBASE: true
           PRINT_ALL_FILES: true
           DISABLE: SPELL,COPYPASTE,YAML
-          # DISABLE_LINTERS: REPOSITORY_CHECKOV,REPOSITORY_TRIVY,REPOSITORY_SECRETLINT # Disable following line of linters to testing locally
+          DISABLE_LINTERS: REPOSITORY_CHECKOV,REPOSITORY_TRIVY # add REPOSITORY_SECRETLINT to disable list to test locally
           FILTER_REGEX_EXCLUDE: '(BenchPress/|engine/|examples/|\.github/workflows|\.devcontainer|\.editorconfig|\.gitmodules|\.sln|\.md|LICENSE|/framework/python|samples/python)'
           FILTER_REGEX_INCLUDE: '(framework/dotnet|samples/dotnet)'
           REPORT_OUTPUT_FOLDER: ${GITHUB_WORKSPACE}/megalinter-reports
