@@ -1,0 +1,52 @@
+name: pr_dotnet
+
+on:
+  push:
+    paths:
+      - "framework/dotnet/**"
+      - "samples/dotnet/**"
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.PAT || secrets.GITHUB_TOKEN }}
+
+      - name: MegaLinter 
+        uses: oxsecurity/megalinter/flavors/dotnet@v6.12.0
+        env:
+          IGNORE_GITIGNORED_FILES: true
+          VALIDATE_ALL_CODEBASE: false
+          DISABLE: SPELL,COPYPASTE,YAML
+          DISABLE_LINTERS: MARKDOWN_MARKDOWN_TABLE_FORMATTER,REPOSITORY_CHECKOV,REPOSITORY_TRIVY
+          # FILTER_REGEX_EXCLUDE: BenchPress/|engine/|examples/|\.github/workflows|\.devcontainer|\.editorconfig|\.gitmodules
+          FILTER_REGEX_EXCLUDE: |
+            BenchPress/ 
+            engine/
+            examples/
+            \.github/workflows
+            \.devcontainer
+            \.editorconfig
+            \.gitmodules
+
+          FILTER_REGEX_INCLUDE: |
+            framework/dotnet
+            samples/dotnet
+      
+      # - name: Create a folder for lint report
+      #   run: mkdir -p lint-report/megalinter-reports 
+        
+      # - name: Create log file ``
+      #   run: echo report > lint-report/mega-linter.log
+
+      # - name: Archive linted artifacts
+      #   if: ${{ success() }} || ${{ failure() }}
+      #   uses: actions/upload-artifact@v2
+      #   with:
+      #     name: MegaLinter reports
+      #     path: |
+      #       lint-report/megalinter-reports
+      #       lint-report/mega-linter.log
