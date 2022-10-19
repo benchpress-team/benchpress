@@ -22,7 +22,7 @@ jobs:
           VALIDATE_ALL_CODEBASE: true
           PRINT_ALL_FILES: true
           DISABLE: SPELL,COPYPASTE,YAML
-          DISABLE_LINTERS: MARKDOWN_MARKDOWN_TABLE_FORMATTER,EDITORCONFIG_EDITORCONFIG_CHECKER,REPOSITORY_CHECKOV,REPOSITORY_TRIVY
+          DISABLE_LINTERS: MARKDOWN_MARKDOWN_TABLE_FORMATTER,PYTHON_MYPY
           FILTER_REGEX_EXCLUDE: '(BenchPress/|engine/|examples/|\.github/workflows|\.devcontainer|\.editorconfig|\.gitmodules|/framework/dotnet|samples/dotnet|\.sln|\.md|LICENSE)'
           FILTER_REGEX_INCLUDE: '(framework/python|samples/python)'
           REPORT_OUTPUT_FOLDER: ${GITHUB_WORKSPACE}/megalinter-reports
