@@ -10,7 +10,8 @@ APPLY_FIXES: all # all, none, or list of linter keys
 SHOW_ELAPSED_TIME: true
 FILEIO_REPORTER: false
 # DISABLE_ERRORS: true # Uncomment if you want MegaLinter to detect errors but not block CI to pass
-FILTER_REGEX_EXCLUDE: './node_modules/'
+FILTER_REGEX_EXCLUDE: '(\./node_modules)'
 EXCLUDED_DIRECTORIES:
   ['node_modules', '.git']
 PRINT_ALPACA: false
+EMAIL_REPORTER: false
