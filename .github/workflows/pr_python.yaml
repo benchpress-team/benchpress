@@ -1,4 +1,4 @@
-name: pr_dotnet
+name: pr_python
 
 on:
   push:
