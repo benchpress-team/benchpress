@@ -19,21 +19,10 @@ jobs:
         uses: oxsecurity/megalinter/flavors/dotnet@v6.12.0
         env:
           IGNORE_GITIGNORED_FILES: true
+          VALIDATE_ALL_CODEBASE: true
           PRINT_ALL_FILES: true
-          REPORT_OUTPUT_FOLDER: ${GITHUB_WORKSPACE}/megalinter-reports
           DISABLE: SPELL,COPYPASTE,YAML
-          DISABLE_LINTERS: MARKDOWN_MARKDOWN_TABLE_FORMATTER,REPOSITORY_CHECKOV,REPOSITORY_TRIVY,REPOSITORY_SECRETLINT
-          # FILTER_REGEX_EXCLUDE: BenchPress/|engine/|examples/|\.github/workflows|\.devcontainer|\.editorconfig|\.gitmodules
-          FILTER_REGEX_EXCLUDE: '(BenchPress/|engine/|examples/|\.github/workflows|\.devcontainer|\.editorconfig|\.gitmodules|\*.sln|\*.md)'
-          # FILTER_REGEX_EXCLUDE: (BenchPress/|engine/|examples/|\.github/workflows|\.devcontainer|\.editorconfig|\.gitmodules)
-          # FILTER_REGEX_EXCLUDE: /BenchPress|/engine|/examples|\.github/workflows|\.devcontainer|\.editorconfig|\.gitmodules
-          # FILTER_REGEX_EXCLUDE: |
-          #   BenchPress/
-          #   engine/
-          #   examples/
-          #   \.github/workflows
-          #   \.devcontainer
-          #   \.editorconfig
-          #   \.gitmodules
-
-          VBDOTNET_FILTER_REGEX_INCLUDE: '(framework/dotnet|samples/dotnet)'
+          DISABLE_LINTERS: MARKDOWN_MARKDOWN_TABLE_FORMATTER,REPOSITORY_CHECKOV,REPOSITORY_TRIVY,REPOSITORY_SECRETLINT,EDITORCONFIG_EDITORCONFIG_CHECKER
+          FILTER_REGEX_EXCLUDE: '(BenchPress/|engine/|examples/|\.github/workflows|\.devcontainer|\.editorconfig|\.gitmodules|\.sln|\.md|LICENS)'
+          FILTER_REGEX_INCLUDE: '(framework/dotnet|samples/dotnet)'
+          REPORT_OUTPUT_FOLDER: ${GITHUB_WORKSPACE}/megalinter-reports
