@@ -1,10 +1,16 @@
-name: pr_python
+name: pr_docs
 
 on:
   push:
     paths:
       - "docs/**.md"
       - "**.md"
+  pull_request:
+    paths-ignore:
+      - "docs/**.md"
+      - "**.md"
+    branches:
+      - main
 jobs:
   lint:
     runs-on: ubuntu-latest
@@ -21,7 +27,7 @@ jobs:
           IGNORE_GITIGNORED_FILES: true
           VALIDATE_ALL_CODEBASE: true
           PRINT_ALL_FILES: true
-          DISABLE: COPYPASTE,YAML
+          DISABLE: SPELL,COPYPASTE,YAML
           DISABLE_LINTERS: REPOSITORY_CHECKOV,REPOSITORY_TRIVY,REPOSITORY_SECRETLINT
           FILTER_REGEX_EXCLUDE: '(BenchPress/|engine/|examples/|\.github/workflows|\.devcontainer|\.editorconfig|\.gitmodules|/framework/|samples/|\.sln|LICENSE)'
           FILTER_REGEX_INCLUDE: '(docs/|\**.md)'

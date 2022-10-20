@@ -5,6 +5,12 @@ on:
     paths:
       - "framework/python/**"
       - "samples/python/**"
+  pull_request:
+    paths-ignore:
+      - "framework/python/**"
+      - "samples/python/**"
+    branches:
+      - main
 jobs:
   lint:
     runs-on: ubuntu-latest

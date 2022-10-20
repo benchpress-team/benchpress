@@ -2,7 +2,7 @@
 
 This framework is intended to work as a testing framework for Azure deployment features by using [Bicep](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/overview?tabs=bicep).
 
-In order to see how you can work with this framework you can find one sample bicep file in the folder [samples](/examples/main.bicep)
+In order to see how you can work with this framework you can find one sample bicep file in the folder [samples](/examples/sample.bicep)
 that will be deployed by using one PowerShell script.
 
 Process is the following:
@@ -22,7 +22,7 @@ B --> C[Remove]
 
 This project welcomes contributions and suggestions. Most contributions require you to agree to a
 Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
-the rights to use your contribution. For details, visit https://cla.opensource.microsoft.com.
+the rights to use your contribution. For details, visit https://github.com/Azure/benchpress.
 
 When you submit a pull request, a CLA bot will automatically determine whether you need to provide
 a CLA and decorate the PR appropriately (e.g., status check, comment). Simply follow the instructions
