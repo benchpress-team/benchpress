@@ -31,4 +31,4 @@ jobs:
           DISABLE_LINTERS: PYTHON_MYPY,REPOSITORY_CHECKOV,REPOSITORY_TRIVY
           FILTER_REGEX_EXCLUDE: '(BenchPress/|engine/|examples/|\.github/workflows|\.devcontainer|\.editorconfig|\.gitmodules|/docs|/framework/dotnet|samples/dotnet|\.sln|\.md|LICENSE)'
           FILTER_REGEX_INCLUDE: '(framework/python|samples/python)'
-          REPORT_OUTPUT_FOLDER: ${GITHUB_WORKSPACE}/megalinter-reports
+          REPORT_OUTPUT_FOLDER: ${GITHUB_WORKSPACE}/megalinter-reports 
