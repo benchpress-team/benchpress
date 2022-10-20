@@ -62,7 +62,7 @@ jobs:
           DISABLE: SPELL,COPYPASTE,YAML
           DISABLE_LINTERS: REPOSITORY_CHECKOV,REPOSITORY_TRIVY
           FILTER_REGEX_EXCLUDE: '(BenchPress/|engine/|examples/|/docs|\.github/workflows|\.devcontainer|\.editorconfig|\.gitmodules|\.sln|\.md|LICENSE|/framework/python|samples/python)'
-          FILTER_REGEX_INCLUDE: '(framework/dotnet|samples/dotnet)'
+          FILTER_REGEX_INCLUDE: "(framework/dotnet|samples/dotnet)"
           REPORT_OUTPUT_FOLDER: ${GITHUB_WORKSPACE}/megalinter-reports
 ```
 
