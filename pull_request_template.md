@@ -16,7 +16,6 @@ Please delete options that are not relevant.
 # What components are impacted?
 
 Please list parts or components that are impacted and *if* code touched other areas
-- 
 
 # How Has This Been Tested?
 
