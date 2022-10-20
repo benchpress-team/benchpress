@@ -32,3 +32,5 @@ jobs:
           FILTER_REGEX_EXCLUDE: '(BenchPress/|engine/|examples/|\.github/workflows|\.devcontainer|\.editorconfig|\.gitmodules|/framework/|samples/|\.sln|LICENSE)'
           FILTER_REGEX_INCLUDE: '(docs/|\**.md)'
           REPORT_OUTPUT_FOLDER: ${GITHUB_WORKSPACE}/megalinter-reports
+        with:
+          config-file: "markdown_link_config.json"
