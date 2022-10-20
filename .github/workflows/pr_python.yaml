@@ -14,14 +14,7 @@ jobs:
         uses: actions/checkout@v3
         with:
           token: ${{ secrets.PAT || secrets.GITHUB_TOKEN }}
-
-      - name: Get mypy
-        uses: sasanquaneuf/mypy-github-action@releases/v1
-        with:
-          checkName: 'lint'   # NOTE: this needs to be the same as the job name
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
+          
       - name: MegaLinter 
         uses: oxsecurity/megalinter/flavors/python@v6.12.0
         env:
@@ -29,7 +22,7 @@ jobs:
           VALIDATE_ALL_CODEBASE: true
           PRINT_ALL_FILES: true
           DISABLE: SPELL,COPYPASTE,YAML
-          DISABLE_LINTERS: MARKDOWN_MARKDOWN_TABLE_FORMATTER
+          DISABLE_LINTERS: PYTHON_MYPY,REPOSITORY_CHECKOV,REPOSITORY_TRIVY
           FILTER_REGEX_EXCLUDE: '(BenchPress/|engine/|examples/|\.github/workflows|\.devcontainer|\.editorconfig|\.gitmodules|/framework/dotnet|samples/dotnet|\.sln|\.md|LICENSE)'
           FILTER_REGEX_INCLUDE: '(framework/python|samples/python)'
           REPORT_OUTPUT_FOLDER: ${GITHUB_WORKSPACE}/megalinter-reports
