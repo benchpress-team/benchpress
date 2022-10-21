@@ -2,30 +2,6 @@
 # See all available variables at https://oxsecurity.github.io/megalinter/configuration/ and in linters documentation
 
 APPLY_FIXES: all # all, none, or list of linter keys
-# ENABLE: # If you use ENABLE variable, all other languages/formats/tooling-formats will be disabled by default
-#   - CSHARP
-#   - PYTHON
-#   - POWERSHELL
-#   - REPOSITORY
-#   - MARKDOWN
-# ENABLE_LINTERS: # If you use ENABLE_LINTERS variable, all other linters will be disabled by default
-#   - CSHARP_DOTNET_FORMAT
-#   - POWERSHELL_POWERSHELL
-#   - PYTHON_BANDIT
-#   - PYTHON_ISORT
-#   - PYTHON_PYLINT
-#   - MARKDOWN_MARKDOWNLINT
-#   # - MARKDOWN_MARKDOWN_LINK_CHECK
-#   # - MARKDOWN_MARKDOWN_TABLE_FORMATTER
-#   # - MARKDOWN_REMARK_LINT
-#   - REPOSITORY_CHECKOV
-#   # - REPOSITORY_DEVSKIM
-#   - REPOSITORY_DUSTILOCK
-#   - REPOSITORY_GIT_DIFF
-#   - REPOSITORY_GITLEAKS
-#   - REPOSITORY_SECRETLINT
-#   - REPOSITORY_SYFT
-#   - REPOSITORY_TRIVY
 # DISABLE:
 # - COPYPASTE # Uncomment to disable checks of excessive copy-pastes
 # - SPELL # Uncomment to disable checks of spelling mistakes
@@ -38,13 +14,10 @@ PRINT_ALPACA: false
 EMAIL_REPORTER: false
 DISABLE_ERRORS_LINTERS:
   - REPOSITORY_DEVSKIM
-  - PYTHON_BANDIT # consider disabling these?  They are disabled for the megalinter project itself
-  # - PYTHON_PYRIGHT
-  # - REPOSITORY_SEMGREP
-
+  # - PYTHON_BANDIT # consider disabling?  disabled for the megalinter project itself
 PARALLEL: true
-IGNORE_GITIGNORED_FILES: true 
-GITHUB_STATUS_REPORTER: true 
+IGNORE_GITIGNORED_FILES: true
+GITHUB_STATUS_REPORTER: true
 MARKDOWN_DEFAULT_STYLE: markdownlint
 VALIDATE_ALL_CODEBASE: true # Will parse the entire repository and find all files to validate across all types. NOTE: When set to false, only new or edited files will be parsed for validation.
 SHOW_SKIPPED_LINTERS: true
