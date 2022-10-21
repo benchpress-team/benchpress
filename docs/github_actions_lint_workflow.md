@@ -1,6 +1,6 @@
 # Github Actions Lint Workflow
 
-Current repo has three linting workflows in the `.github/workflows`. Each workflow uses specific Megalinter flavor to lint specific folders when new code gets pushed. All configuration files are located under `tmp/` directory
+Current repo has three linting workflows in the `.github/workflows`. Each workflow uses specific Megalinter flavor to lint specific folders when new code gets pushed. All configuration files are located under `config/megalinter` directory
 
 - pr_dotnet - uses `oxsecurity/megalinter/flavors/dotnet@v6.12.0` to lint dotnet code in the `framework/` and `samples/` directories
 - pr_python - uses `oxsecurity/megalinter/flavors/python@v6.12.0` to lint python code in the `framework/` and `samples/` directories
