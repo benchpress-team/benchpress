@@ -23,7 +23,7 @@
             "pattern": ["comment-single-line", "comment-multi-line"]
         }
     ],
-    "ignoreRegExpList": ["comments", "/^\\s*```[\\s\\S]*?^\\s*```/gm", "/^\\s*`[\\s\\S]*?^\\s*`/gm"],
+    "ignoreRegExpList": ["comments", "/^\\s*`[\\s\\S]*?^\\s*`/gm", "/^\\s*```[\\s\\S]*?^\\s*```/gm"],
     "words": [
         "onboardsupport",
         "MSRC",
