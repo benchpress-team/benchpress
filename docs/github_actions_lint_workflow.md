@@ -19,8 +19,8 @@ Rather than having to commit/push every time you want to test out the changes yo
 
 ### Additional useful links
 
-- Understanding GitHub Actions `https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions`
-- Github Actions Workflow Syntax `https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions`
+- Understanding GitHub Actions [GitHub Actions](https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions)
+- Github Actions Workflow Syntax [Workflow Syntax](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions)
 - Full list of [Megalinter flavors](https://oxsecurity.github.io/megalinter/latest/flavors/)
 - Megalinter Configuration Variables [Configuration Variables](https://github.com/marketplace/actions/megalinter#common-variables)
 - Useful `act` CLI commands [act CLI commands](https://github.com/nektos/act#example-commands)

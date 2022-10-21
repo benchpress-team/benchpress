@@ -28,7 +28,8 @@ jobs:
           VALIDATE_ALL_CODEBASE: true
           PRINT_ALL_FILES: true
           DISABLE: COPYPASTE,YAML
-          SPELL_CSPELL_CONFIG_FILE: /tmp/.cspell.json
+          # SPELL_CSPELL_CONFIG_FILE: /tmp/.cspell.json
+          MARKDOWN_MARKDOWN_LINK_CHECK_CONFIG_FILE: /tmp/.markdown-link-check.json
           DISABLE_LINTERS: REPOSITORY_CHECKOV,REPOSITORY_TRIVY 
           FILTER_REGEX_EXCLUDE: '(BenchPress/|engine/|examples/|\.github/workflows|\.devcontainer|\.editorconfig|\.gitmodules|/framework/|samples/|\.sln|LICENSE)'
           FILTER_REGEX_INCLUDE: '(docs/|\**.md)'
