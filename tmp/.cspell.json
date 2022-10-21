@@ -25,7 +25,9 @@
     ],
     "ignoreRegExpList": ["comments", "/^\\s*```[\\s\\S]*?^\\s*```/gm"],
     "words": [
-        "onboardsupport"
+        "onboardsupport",
+        "MSRC",
+        "msrc"
     ]
 }
 
