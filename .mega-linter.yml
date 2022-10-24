@@ -33,3 +33,4 @@ JAVASCRIPT_PRETTIER_CONFIG_FILE: /config/megalinter/.prettierrc.json
 MARKDOWN_MARKDOWNLINT_CONFIG_FILE: /config/megalinter/.markdownlint.json
 POWERSHELL_POWERSHELL_CONFIG_FILE: /config/megalinter/.powershell-psscriptanalyzer.psd1
 # BICEP_BICEP_LINTER doesn't source a file from a specific path, but a relative path to where a bicep file is invoked..
+REPOSITORY_SECRETLINT_CONFIG_FILE: /config/megalinter/.secretlintrc.json
