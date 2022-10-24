@@ -1,9 +1,8 @@
 $ROOT_PATH = $PSScriptRoot | split-path -parent | split-path -parent | split-path -parent | split-path -parent | split-path -parent
-Write-host Root Path is:  $ROOT_PATH
 
 BeforeAll {
-  Import-Module $ROOT_PATH/Benchpress/Helpers/Azure/ResourceGroup.psm1
-  Import-Module $ROOT_PATH/Benchpress/Helpers/Azure/Bicep.psm1
+  Import-Module -Name $ROOT_PATH/Benchpress/Helpers/Azure/ResourceGroup.psm1
+  Import-Module -Name $ROOT_PATH/Benchpress/Helpers/Azure/Bicep.psm1
 }
 
 Describe 'Verify Resource Group Exists' {

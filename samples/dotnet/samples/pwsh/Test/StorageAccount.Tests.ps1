@@ -1,6 +1,8 @@
+$ROOT_PATH = $PSScriptRoot | split-path -parent | split-path -parent | split-path -parent | split-path -parent | split-path -parent
+
 BeforeAll {
-    Import-Module -Name $PSScriptRoot/Benchpress/Helpers/Azure/StorageAcccount.psm1
-    Import-Module -Name $PSScriptRoot/Benchpress/Helpers/Azure/Bicep.psm1
+    Import-Module -Name $ROOT_PATH/Benchpress/Helpers/Azure/StorageAcccount.psm1
+    Import-Module -Name $ROOT_PATH/Benchpress/Helpers/Azure/Bicep.psm1
 }
 
 Describe 'Verify Storage Account Exists' {
