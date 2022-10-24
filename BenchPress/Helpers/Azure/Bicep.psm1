@@ -9,7 +9,7 @@ function Deploy-BicepFeature([string]$path, $params, $resourceGroupName){
   $code = $?
   if ($code -eq "True") {
     $location = $params.location
-    $deploymentName = $params.deploymentName
+    $deploymentName = $params.name
 
     Write-Host "Deploying ARM Template ($deploymentName) to $location"
 
@@ -17,7 +17,14 @@ function Deploy-BicepFeature([string]$path, $params, $resourceGroupName){
       New-AzSubscriptionDeployment -Name "$deploymentName" -Location "$location" -TemplateFile "$armPath" -TemplateParameterObject $params -SkipTemplateParameterPrompt
     }
     else{
-      New-AzResourceGroupDeployment -Name "$deploymentName" -ResourceGroupName "$resourceGroupName" -TemplateFile "$armPath" -TemplateParameterObject $params -SkipTemplateParameterPrompt
+      if (-not (Get-AzResourceGroup -Name $resourceGroupName)) {
+        Write-Host "Creating Resource Group ($resourceGroupName) in $location"
+
+        New-AzResourceGroup -Name $resourceGroupName -Location $location
+      }
+      Write-Host "Deploying ARM Template ($deploymentName) to $location"
+
+      New-AzResourceGroupDeployment -ResourceGroupName "$resourceGroupName" -TemplateFile "$armPath"
     }
   }
 

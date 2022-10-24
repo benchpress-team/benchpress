@@ -1,12 +1,15 @@
+$ROOT_PATH = $PSScriptRoot | split-path -parent | split-path -parent | split-path -parent | split-path -parent | split-path -parent
+Write-host Root Path is:  $ROOT_PATH
+
 BeforeAll {
-  . $PSScriptRoot/BenchPress/Helpers/Azure/ResourceGroup.psm1
-  . $PSScriptRoot/BenchPress/Helpers/Azure/Bicep.psm1
+  Import-Module $ROOT_PATH/Benchpress/Helpers/Azure/ResourceGroup.psm1
+  Import-Module $ROOT_PATH/Benchpress/Helpers/Azure/Bicep.psm1
 }
 
 Describe 'Verify Resource Group Exists' {
   it 'Should contain a resource group named tflintrules' {
     #arrange
-    $rgName = "tflintrules"
+    $rgName = "rg-test-bicep"
 
     #act
     $exists = Get-ResourceGroupExists($rgName)
@@ -19,7 +22,7 @@ Describe 'Verify Resource Group Exists' {
 Describe 'Spin up , Tear down Resource Group' {
   it 'Should deploy a bicep file.' {
     #arrange
-    $bicepPath = "./main.bicep"
+    $bicepPath = "$ROOT_PATH/samples/dotnet/samples/pwsh/resourceGroup.bicep"
     $params = @{
       name        = "rgtestocw11"
       location    = "westus"
