@@ -8,7 +8,7 @@
 
 _Then remove this first heading from this SUPPORT.MD file before publishing your repo._
 
-# Support
+## Support
 
 ## How to file issues and get help
 
