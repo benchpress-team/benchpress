@@ -36,4 +36,5 @@ POWERSHELL_POWERSHELL_CONFIG_FILE: /config/megalinter/.powershell-psscriptanalyz
 # YAML_V8R: .v8rrc # this file needs to be in the root directory, v8r doesn't provide a config file path param, perhaps create PR again v8r?
 REPOSITORY_SECRETLINT_CONFIG_FILE: /config/megalinter/.secretlintrc.json
 REPOSITORY_SYFT_CONFIG_FILE: /config/megalinter/.syft.yaml
-JSON_ESLINT_PLUGIN_JSONC_CONFIG_FILE:  /config/megalinter/.eslintrc-json.json
+JSON_ESLINT_PLUGIN_JSONC_CONFIG_FILE: /config/megalinter/.eslintrc-json.json
+ARM_ARM_TTK_CONFIG_FILE: /config/megalinter/.arm-ttk.psd1
