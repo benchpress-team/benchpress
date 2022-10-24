@@ -6,7 +6,7 @@
 - **Yes CSS support:** Fill out an intake form at aka.ms/onboardsupport. CSS will work with/help you to determine next steps.
 - **Not sure?** Fill out an intake as though the answer were "Yes". CSS will help you decide.
 
-_Then remove this first heading from this SUPPORT.MD file before publishing your repo._
+Then remove this first heading from this SUPPORT.MD file before publishing your repo.
 
 ## Support
 
