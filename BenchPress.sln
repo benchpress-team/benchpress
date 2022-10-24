@@ -13,8 +13,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "framework", "framework", "{
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dotnet", "dotnet", "{8223C874-C45A-4ABE-A340-893ED768661C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BenchPress.Module", "framework\dotnet\BenchPress.Module\BenchPress.Module.csproj", "{D9BEFD0F-AC9B-4EA8-AC27-54189778729B}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BenchPress.TestFramework", "framework\dotnet\BenchPress.TestFramework\BenchPress.TestFramework.csproj", "{B7C203B4-865B-4D63-B3D3-8A90990AC13A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BenchPress.TestFramework.Tests", "framework\dotnet\BenchPress.TestFramework.Tests\BenchPress.TestFramework.Tests.csproj", "{B1BC5E2E-2694-4E49-908A-F9CBD387DD89}"
