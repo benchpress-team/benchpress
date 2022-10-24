@@ -5,6 +5,9 @@ APPLY_FIXES: all # all, none, or list of linter keys
 # DISABLE:
 # - COPYPASTE # Uncomment to disable checks of excessive copy-pastes
 # - SPELL # Uncomment to disable checks of spelling mistakes
+DISABLE_LINTERS: 
+  - PYTHON_PYRIGHT
+  - PYTHON_MYPY
 SHOW_ELAPSED_TIME: true
 FILEIO_REPORTER: false
 # DISABLE_ERRORS: true # Uncomment if you want MegaLinter to detect errors but not block CI to pass
@@ -39,3 +42,6 @@ REPOSITORY_SYFT_CONFIG_FILE: /config/megalinter/.syft.yaml
 JSON_ESLINT_PLUGIN_JSONC_CONFIG_FILE: /config/megalinter/.eslintrc-json.json
 ARM_ARM_TTK_CONFIG_FILE: /config/megalinter/.arm-ttk.psd1
 ACTION_ACTIONLINT_CONFIG_FILE: /config/megalinter/actionlint.yml
+REPOSITORY_CHECKOV_CONFIG_FILE: /config/megalinter/.checkov.yml
+# PYTHON_PYRIGHT_CONFIG_FILE: /config/megalinter/pyrightconfig.json # DISABLED
+PYTHON_MYPY_CONFIG_FILE: /config/megalinter/.mypy.ini
