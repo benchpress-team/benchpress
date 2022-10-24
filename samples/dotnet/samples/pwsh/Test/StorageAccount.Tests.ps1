@@ -29,7 +29,6 @@ Describe 'Spin up , Tear down Storage Account' {
             location = "eastus"
         }
         $resourceGroupName = "rg-test-bicep"
-        $storageAccountName = 'mystnamebicep'
 
         #act
         $deployment = Deploy-BicepFeature $bicepPath $params $resourceGroupName
