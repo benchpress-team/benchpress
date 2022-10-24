@@ -45,3 +45,7 @@ ACTION_ACTIONLINT_CONFIG_FILE: /config/megalinter/actionlint.yml
 REPOSITORY_CHECKOV_CONFIG_FILE: /config/megalinter/.checkov.yml
 # PYTHON_PYRIGHT_CONFIG_FILE: /config/megalinter/pyrightconfig.json # DISABLED
 PYTHON_MYPY_CONFIG_FILE: /config/megalinter/.mypy.ini
+PYTHON_FLAKE8_CONFIG_FILE: /config/megalinter/.flake8
+PYTHON_BLACK_CONFIG_FILE: /config/megalinter/pyproject.toml
+PYTHON_BANDIT_CONFIG_FILE: /config/megalinter/.bandit.yml
+REPOSITORY_GITLEAKS_CONFIG_FILE: /config/megalinter/.gitleaks.toml
