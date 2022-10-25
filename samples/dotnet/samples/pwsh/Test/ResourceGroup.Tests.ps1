@@ -30,7 +30,7 @@ Describe 'Spin up , Tear down Resource Group' {
     #act
     $deployment = Deploy-BicepFeature $bicepPath $params
     #assert
-    $deployment.ProvisioningState | Should -Be "Succeeded"
+    $deployment.ProvisioningState | Should -Be "Succeeded" 
 
     #clean up
     Remove-BicepFeature $params

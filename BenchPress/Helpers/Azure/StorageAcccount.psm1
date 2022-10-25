@@ -17,11 +17,5 @@ function Get-StorageAccountSku([string]$resourceGroupName, [string]$storageAccou
   return $resource.Sku.Name
 }
 
-function Get-StorageAccountDNS([string]$resourceGroupName, [string]$storageAccountName) {
-  $resource = Get-AzStorageAccount -ResourceGroupName $resourceGroupName -AccountName $storageAccountName
-
-  return $resource.PrimaryEndpoints.Blob
-}
-
 Export-ModuleMember -Function `
-  Get-StorageAccountExists, Get-StorageAccountKind, Get-StorageAccountSku, Get-StorageAccountDNS
+  Get-StorageAccountExists, Get-StorageAccountKind, Get-StorageAccountSku

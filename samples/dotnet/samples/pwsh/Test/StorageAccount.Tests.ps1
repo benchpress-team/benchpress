@@ -3,32 +3,21 @@ $ROOT_PATH = $PSScriptRoot | split-path -parent | split-path -parent | split-pat
 BeforeAll {
     Import-Module -Name $ROOT_PATH/Benchpress/Helpers/Azure/StorageAcccount.psm1
     Import-Module -Name $ROOT_PATH/Benchpress/Helpers/Azure/Bicep.psm1
-}
 
-Describe 'Verify Storage Account Exists' {
-    it 'Should contain a storage account named mystnamebicep' {
-        #arrange
-        $resourceGroupName = 'rg-test-bicep'
-        $storageAccountName = 'mystnamebicep'
-
-        #act
-        $exists = Get-StorageAccountExists $resourceGroupName $storageAccountName
-
-        #assert
-        $exists | Should -Be $true
-    }
+    #arrange
+    $resourceGroupName = 'rg-test-bicep'
+    $storageAccountName = 'mystnamebicepv2'
 }
 
 Describe 'Spin up , Tear down Storage Account' {
     it 'Should deploy a bicep file.' {
 
         #arrange
-        $bicepPath = "./Resources/storageAccount.bicep"
+        $bicepPath = "$ROOT_PATH/samples/dotnet/samples/pwsh/storageAccount.bicep"
         $params = @{
             name = "rg-test-bicep"
             location = "eastus"
         }
-        $resourceGroupName = "rg-test-bicep"
 
         #act
         $deployment = Deploy-BicepFeature $bicepPath $params $resourceGroupName
@@ -38,30 +27,23 @@ Describe 'Spin up , Tear down Storage Account' {
     }
 
     it 'Should Check Storage Sku Name'{
-        #arrange
-        $resourceGroupName = 'rg-test-bicep'
-        $storageAccountName = 'mystnamebicep'
 
         #act
         $getStorageAccountSku = Get-StorageAccountSku $resourceGroupName $storageAccountName
 
         #assert
-        $getStorageAccountSku | Should -Be "Standard_GRS"
+        $getStorageAccountSku | Should -Be "Standard_LRS"
     }
 
     it 'Should Check Storage Kind'{
-        #arrange
-        $resourceGroupName = 'rg-test-bicep'
-        $storageAccountName = 'mystnamebicep'
-
         #act
         $getStorageAccountKind = Get-StorageAccountKind $resourceGroupName $storageAccountName
 
         #assert
-        $getStorageAccountKind | Should -Be "StorageV3"
+        $getStorageAccountKind | Should -Be "StorageV2"
     }
 
-    it 'Clean Up Deployed Resources'{
+    it 'Delete Deployed Resources'{
         Remove-BicepFeature $resourceGroupName
     }
 }
