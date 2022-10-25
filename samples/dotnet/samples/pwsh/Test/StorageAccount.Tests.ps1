@@ -1,49 +1,61 @@
+#repo root path
 $ROOT_PATH = $PSScriptRoot | split-path -parent | split-path -parent | split-path -parent | split-path -parent | split-path -parent
 
 BeforeAll {
     Import-Module -Name $ROOT_PATH/Benchpress/Helpers/Azure/StorageAcccount.psm1
     Import-Module -Name $ROOT_PATH/Benchpress/Helpers/Azure/Bicep.psm1
 
-    #arrange
-    $resourceGroupName = 'rg-test-bicep'
+    #declared at the top to be able to access by all tests functions
     $storageAccountName = 'mystnamebicepv2'
+    $resourceGroupName = 'rg-test-bicep'
 }
 
 Describe 'Spin up , Tear down Storage Account' {
     it 'Should deploy a bicep file.' {
 
-        #arrange
+        #bicep file path
         $bicepPath = "$ROOT_PATH/samples/dotnet/samples/pwsh/storageAccount.bicep"
+
+        #required parameters for storage account deployment
         $params = @{
-            name = "rg-test-bicep"
-            location = "eastus"
+          name = "mystnamebicepv2"
+          location = "eastus"
         }
 
-        #act
+        #calling Deploy-BicepFeature helper to deploy resources
         $deployment = Deploy-BicepFeature $bicepPath $params $resourceGroupName
 
-        #assert
-        $deployment.ProvisioningState | Should -Be "Succeeded"
+        #checking the return state from deployment
+        $deployment.ProvisioningState | Should -Be 'Succeeded'
+    }
+
+    it 'Should check storage account exist' {
+       #Calling StorageAccount helper method to check expected storage account exist
+       $storageAccount = Get-StorageAccountExists $resourceGroupName $storageAccountName
+
+       #assert return value from StorageAccount helper
+       $storageAccount | Should -Not -BeNullOrEmpty -ErrorAction Stop
     }
 
     it 'Should Check Storage Sku Name'{
 
-        #act
+        #Calling StorageAccount helper method to check for expected storage Sku
         $getStorageAccountSku = Get-StorageAccountSku $resourceGroupName $storageAccountName
 
-        #assert
+        #assert return value from StorageAccount helper
         $getStorageAccountSku | Should -Be "Standard_LRS"
     }
 
     it 'Should Check Storage Kind'{
-        #act
+        #Calling StorageAccount helper method to check for expected storage Kind
         $getStorageAccountKind = Get-StorageAccountKind $resourceGroupName $storageAccountName
 
-        #assert
+        #assert return value from StorageAccount helper
         $getStorageAccountKind | Should -Be "StorageV2"
     }
 
     it 'Delete Deployed Resources'{
+        #Call Bicep helper to remove deployed resources
         Remove-BicepFeature $resourceGroupName
     }
 }

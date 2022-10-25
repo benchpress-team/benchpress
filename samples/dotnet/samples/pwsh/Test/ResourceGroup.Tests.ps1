@@ -20,19 +20,23 @@ Describe 'Verify Resource Group Exists' {
 
 Describe 'Spin up , Tear down Resource Group' {
   it 'Should deploy a bicep file.' {
-    #arrange
+    #get bicep file path
     $bicepPath = "$ROOT_PATH/samples/dotnet/samples/pwsh/resourceGroup.bicep"
+
+    #pass required bicep parameteres
     $params = @{
-      name        = "rgtestocw11"
-      location    = "westus"
+      name        = "rg-test-bicep"
+      location    = "eastus"
       environment = "ocwtest"
     }
-    #act
-    $deployment = Deploy-BicepFeature $bicepPath $params
-    #assert
-    $deployment.ProvisioningState | Should -Be "Succeeded" 
 
-    #clean up
-    Remove-BicepFeature $params
+    #deploy bicep suing bicep helper
+    $deployment = Deploy-BicepFeature $bicepPath $params $resourceGroupName
+
+    #assert deployment succeeded or not
+    $deployment.ProvisioningState | Should -Be "Succeeded"
+
+    #clean up deployed resources
+    Remove-BicepFeature $params.name
   }
 }
