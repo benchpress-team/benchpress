@@ -4,32 +4,36 @@ using BenchPress.TestEngine.Azure;
 
 namespace BenchPress.TestFramework.Azure
 {
-  public static class ResourceGroup
-  {
-      public static KeyValuePair<string, string> GetResourceGroup(string name)
-      {
-        var engine = new ResourceGroup();
+    public static class ResourceGroup
+    {
+        public static KeyValuePair<string, string> GetResourceGroup(string name, AzureConfig config = null)
+        {
+            var engine = new ResourceGroup();
 
-        return engine.GetResourceGroup(name);
-      }
+            return engine.GetResourceGroup(name);
+        }
 
-      public static KeyValuePair<string, string> GetResourceGroup(string name, string location)
-      {
-        var engine = new ResourceGroup();
+        public static KeyValuePair<string, string> CheckResourceGroupExists(string name, AzureConfig config = null)
+        {
+            var engine = new ResourceGroup();
 
-        return engine.GetResourceGroup(name, location);
-      }
-  }
+            return engine.CheckResourceGroupExists(name, location);
+        }
+    }
 }
 
 /*
 sample usage;
 
+Config.SetConfig("");
+
 var fullResourceGroup1 = ResourceGroup.GetResourceGroup("rg-test");
 
-var fullResourceGroup2 = ResourceGroup.GetResourceGroup("rg-test", "eastus");
+var fullResourceGroup2 = ResourceGroup.GetResourceGroup("rg-test", config);
 
-var isResourceGroup1Exists = ResourceGroup.IsResourceGroupExists("rg-test");
+Config.SetConfig("");
 
-var isResourceGroup2Exists = ResourceGroup.IsResourceGroupExists("rg-test", "eastus");
+var isResourceGroup1Exists = ResourceGroup.CheckResourceGroupExists("rg-test");
+
+var isResourceGroup2Exists = ResourceGroup.CheckResourceGroupExists("rg-test", config);
 */

@@ -4,31 +4,70 @@ namespace BenchPress.TestEngine
 {
   namespace Azure
   {
+    public class Config
+    {
+      /*
+      public void SetConfig(AzureConfig config)
+      {
+      }
+      */
+    }
+
     public class ResourceGroup
     {
-      public KeyValuePair<string, string> GetResourceGroup(string name)
+      public KeyValuePair<string, string> GetResourceGroup(string nameOrResourceId)
+      {
+        if (nameOrResourceId.Contains("/"))
+        {
+          return GetResourceGroupById(nameOrResourceId);
+        }
+        return GetResourceGroupByName(nameOrResourceId);
+      }
+
+      private KeyValuePair<string, string> GetResourceGroupByName(string name)
       {
         return null;
       }
 
-      public KeyValuePair<string, string> GetResourceGroup(string name, string location)
+      private KeyValuePair<string, string> GetResourceGroupById(string id)
       {
         return null;
       }
 
-      public bool IsResourceGroupExists(string name)
+      public bool CheckResourceGroupExists(string nameOrResourceId)
       {
-        return GetResourceGroup(name);
+        return GetResourceGroup(nameOrResourceId) != null;
+      }
+    }
+
+    public class StorageAccount
+    {
+      public KeyValuePair<string, string> GetStorageAccount(string nameOrResourceId)
+      {
+        if (nameOrResourceId.Contains("/"))
+        {
+          return GetStorageAccountById(nameOrResourceId);
+        }
+        return GetStorageAccountByName(nameOrResourceId);
       }
 
-      public bool IsResourceGroupExists(string name, string location)
+      private KeyValuePair<string, string> GetStorageAccountByName(string name)
       {
-        return GetResourceGroup(name, location);
+        return null;
+      }
+
+      private KeyValuePair<string, string> GetStorageAccountById(string id)
+      {
+        return null;
+      }
+
+      public bool CheckStorageAccountExists(string nameOrResourceId)
+      {
+        return GetStorageAccount(nameOrResourceId) != null;
       }
     }
   }
   namespace Kubernetes
   {
-    
   }
 }
