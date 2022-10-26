@@ -7,8 +7,8 @@ BeforeAll {
 }
 
 #global varaibles with required values for the tests
-$global:storageAccountName = 'mystnamebicepv2'
-$global:resourceGroupName = 'rg-test-bicep'
+$script:storageAccountName = 'mystnamebicepv2'
+$script:resourceGroupName = 'rg-test-bicep'
 
 Describe 'Spin up , Tear down Storage Account' {
     it 'Should deploy a bicep file.' {
