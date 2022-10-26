@@ -6,7 +6,7 @@ BeforeAll {
 }
 
 Describe 'Verify Resource Group Exists' {
-  it 'Should contain a resource group named tflintrules' {
+  it 'Should contain a resource group named rg-test-bicep' {
     #arrange
     $rgName = "rg-test-bicep"
 
