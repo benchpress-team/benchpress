@@ -11,9 +11,23 @@ on:
       - "samples/dotnet/**"
     branches:
       - main
+<<<<<<< HEAD
 jobs:
   lint:
     runs-on: ubuntu-latest
+=======
+
+env:
+  DOTNET_VERSION: '6.0.x'
+
+jobs:
+  lint:
+    name: lint-${{matrix.os}}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ ubuntu-latest ]
+>>>>>>> 4ccab42ad8a9608c6679f59034c62d367f458cef
 
     steps:
       - name: Checkout code
@@ -31,4 +45,19 @@ jobs:
           DISABLE_LINTERS: REPOSITORY_CHECKOV,REPOSITORY_TRIVY
           FILTER_REGEX_EXCLUDE: '(BenchPress/|engine/|examples/|/docs|\.github/workflows|\.devcontainer|\.editorconfig|\.gitmodules|\.sln|\.md|LICENSE|/framework/python|samples/python)'
           FILTER_REGEX_INCLUDE: '(framework/dotnet|samples/dotnet)'
+<<<<<<< HEAD
           REPORT_OUTPUT_FOLDER: ${GITHUB_WORKSPACE}/megalinter-reports
+=======
+          REPORT_OUTPUT_FOLDER: ${GITHUB_WORKSPACE}/megalinter-reports
+
+      - name: Setup dotnet
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+
+      - name: Install dependencies
+        run: dotnet restore
+
+      - name: Build
+        run: dotnet build --configuration Release --no-restore
+>>>>>>> 4ccab42ad8a9608c6679f59034c62d367f458cef
