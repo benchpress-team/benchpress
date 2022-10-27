@@ -6,16 +6,14 @@ namespace BenchPress.TestEngine
   {
     public class Config
     {
-      /*
-      public void SetConfig(AzureConfig config)
+      public void Set(Config config)
       {
       }
-      */
     }
 
     public class ResourceGroup
     {
-      public KeyValuePair<string, string> GetResourceGroup(string nameOrResourceId)
+      public object GetResourceGroup(string nameOrResourceId)
       {
         if (nameOrResourceId.Contains("/"))
         {
@@ -24,12 +22,12 @@ namespace BenchPress.TestEngine
         return GetResourceGroupByName(nameOrResourceId);
       }
 
-      private KeyValuePair<string, string> GetResourceGroupByName(string name)
+      private object GetResourceGroupByName(string name)
       {
         return null;
       }
 
-      private KeyValuePair<string, string> GetResourceGroupById(string id)
+      private object GetResourceGroupById(string id)
       {
         return null;
       }
@@ -42,7 +40,7 @@ namespace BenchPress.TestEngine
 
     public class StorageAccount
     {
-      public KeyValuePair<string, string> GetStorageAccount(string nameOrResourceId)
+      public object GetStorageAccount(string nameOrResourceId)
       {
         if (nameOrResourceId.Contains("/"))
         {
@@ -51,12 +49,12 @@ namespace BenchPress.TestEngine
         return GetStorageAccountByName(nameOrResourceId);
       }
 
-      private KeyValuePair<string, string> GetStorageAccountByName(string name)
+      private object GetStorageAccountByName(string name)
       {
         return null;
       }
 
-      private KeyValuePair<string, string> GetStorageAccountById(string id)
+      private object GetStorageAccountById(string id)
       {
         return null;
       }
