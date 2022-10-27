@@ -27,7 +27,7 @@ List of requirements on development machine:
 - Python 3
 
 #### Python setup
-From the root directory, execute to install benchpress as a referenceable module:
+From the root directory, execute to install benchpress as a module that can be referenced:
 
 > pip install --editable ./framework/python/
 

@@ -1,3 +1,3 @@
 
 
-from .calculator import add
+from .calculator import add # noqa: F401
