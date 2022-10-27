@@ -25,18 +25,18 @@ Describe 'Spin up , Tear down Resource Group' {
 
     #pass required bicep parameteres
     $params = @{
-      name        = "rg-test-bicep"
-      location    = "eastus"
-      environment = "ocwtest"
+      resourceGroupName        = "rg-test-bicep"
+      location                 = "eastus"
+      environment              = "ocwtest"
     }
 
     #deploy bicep suing bicep helper
-    $deployment = Deploy-BicepFeature $bicepPath $params $resourceGroupName
+    $deployment = Deploy-BicepFeature $bicepPath $params
 
     #assert deployment succeeded or not
     $deployment.ProvisioningState | Should -Be "Succeeded"
 
     #clean up deployed resources
-    Remove-BicepFeature $params.name
+    Remove-BicepFeature $params.resourceGroupName
   }
 }

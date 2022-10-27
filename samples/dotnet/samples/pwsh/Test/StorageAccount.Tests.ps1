@@ -14,16 +14,17 @@ Describe 'Spin up , Tear down Storage Account' {
     it 'Should deploy a bicep file.' {
 
       #bicep file path
-      $bicepPath = "$ROOT_PATH/samples/dotnet/samples/pwsh/storageAccount.bicep"
+      $bicepPath = "$ROOT_PATH/samples/dotnet/samples/pwsh/storageAccountDeploy.bicep"
 
       #required parameters for storage account deployment
       $params = @{
-        name = "mystnamebicepv2"
+        resourceGroupName = "rg-test-bicep"
         location = "eastus"
+        storageName = "mystnamebicepv2"
       }
 
-      #calling Deploy-BicepFeature helper to deploy resources
-      $deployment = Deploy-BicepFeature $bicepPath $params $resourceGroupName
+      #Calling Deploy-BicepFeature helper to deploy resources
+      $deployment = Deploy-BicepFeature $bicepPath $params
 
       #checking the return state from deployment
       $deployment.ProvisioningState | Should -Be 'Succeeded'
@@ -59,3 +60,4 @@ Describe 'Spin up , Tear down Storage Account' {
       Remove-BicepFeature $resourceGroupName
     }
 }
+#EOF
