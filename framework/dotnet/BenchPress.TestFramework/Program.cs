@@ -1,23 +1,21 @@
 ﻿using System.Collections.Generic;
 
-using BenchPress.TestEngine.Azure;
-
 namespace BenchPress.TestFramework.Azure
 {
     public static class ResourceGroup
     {
-        public static KeyValuePair<string, string> GetResourceGroup(string name, AzureConfig config = null)
+        public static object GetResourceGroup(string name, BenchPress.TestEngine.Azure.Config config = null)
         {
-            var engine = new ResourceGroup();
+            var engine = new BenchPress.TestEngine.Azure.ResourceGroup();
 
             return engine.GetResourceGroup(name);
         }
 
-        public static KeyValuePair<string, string> CheckResourceGroupExists(string name, AzureConfig config = null)
+        public static object CheckResourceGroupExists(string name, BenchPress.TestEngine.Azure.Config config = null)
         {
-            var engine = new ResourceGroup();
+            var engine = new BenchPress.TestEngine.Azure.ResourceGroup();
 
-            return engine.CheckResourceGroupExists(name, location);
+            return engine.CheckResourceGroupExists(name);
         }
     }
 }
@@ -25,13 +23,13 @@ namespace BenchPress.TestFramework.Azure
 /*
 sample usage;
 
-Config.SetConfig("");
+Config.Set("");
 
 var fullResourceGroup1 = ResourceGroup.GetResourceGroup("rg-test");
 
 var fullResourceGroup2 = ResourceGroup.GetResourceGroup("rg-test", config);
 
-Config.SetConfig("");
+Config.Set("");
 
 var isResourceGroup1Exists = ResourceGroup.CheckResourceGroupExists("rg-test");
 
