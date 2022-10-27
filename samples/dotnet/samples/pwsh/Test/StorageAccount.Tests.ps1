@@ -60,4 +60,3 @@ Describe 'Spin up , Tear down Storage Account' {
       Remove-BicepFeature $resourceGroupName
     }
 }
-#EOF
