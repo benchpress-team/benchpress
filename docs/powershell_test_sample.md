@@ -4,10 +4,12 @@ Following instruction shows how to run StorageAccount.Tests.ps1 file
 
 File is located under following directory: `/samples/dotnet/samples/pwsh/Test`
 
-Before running the test file, create resource group manually with resourceGroupName name and location
-`New-AzResourceGroup -Name "rg-test-bicep" -Location "eastus"`
-
 Run the test `.\StorageAccount.Tests.ps1`
+
+Storage Account deployment uses two bicep files:
+
+- `storageAccountDeploy.bicep` - to deploy resource group and storage account module. This is an actual deployment file
+- `storageAccount.bicep` - storage account bicep file which is called by `storageAccountDeploy.bicep` as a module file
 
 `StorageAccount.Tests.ps1` - Content.
 
@@ -20,7 +22,7 @@ BeforeAll {
     Import-Module -Name $ROOT_PATH/Benchpress/Helpers/Azure/Bicep.psm1
 }
 
-#global varaibles with required values for the tests
+#global variables with required values for the tests. script keyword is used to avoid powershell megalinter complain for global keyword
 $script:storageAccountName = 'mystnamebicepv2'
 $script:resourceGroupName = 'rg-test-bicep'
 
@@ -28,16 +30,17 @@ Describe 'Spin up , Tear down Storage Account' {
     it 'Should deploy a bicep file.' {
 
       #bicep file path
-      $bicepPath = "$ROOT_PATH/samples/dotnet/samples/pwsh/storageAccount.bicep"
+      $bicepPath = "$ROOT_PATH/samples/dotnet/samples/pwsh/storageAccountDeploy.bicep"
 
       #required parameters for storage account deployment
       $params = @{
-        name = "mystnamebicepv2"
+        resourceGroupName = "rg-test-bicep"
         location = "eastus"
+        storageName = "mystnamebicepv2"
       }
 
-      #calling Deploy-BicepFeature helper to deploy resources. $resourceGroupName is mandatory
-      $deployment = Deploy-BicepFeature $bicepPath $params $resourceGroupName
+      #Calling Deploy-BicepFeature helper to deploy resources
+      $deployment = Deploy-BicepFeature $bicepPath $params
 
       #checking the return state from deployment
       $deployment.ProvisioningState | Should -Be 'Succeeded'
@@ -73,5 +76,5 @@ Describe 'Spin up , Tear down Storage Account' {
       Remove-BicepFeature $resourceGroupName
     }
 }
-
+#EOF
 ```

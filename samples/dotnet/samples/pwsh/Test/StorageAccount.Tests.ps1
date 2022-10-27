@@ -6,7 +6,7 @@ BeforeAll {
     Import-Module -Name $ROOT_PATH/Benchpress/Helpers/Azure/Bicep.psm1
 }
 
-#global varaibles with required values for the tests
+#global variables with required values for the tests. script keyword is used to avoid powershell megalinter complain for global keyword
 $script:storageAccountName = 'mystnamebicepv2'
 $script:resourceGroupName = 'rg-test-bicep'
 

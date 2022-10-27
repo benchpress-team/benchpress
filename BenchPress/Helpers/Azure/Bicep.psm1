@@ -21,7 +21,7 @@ function Deploy-BicepFeature([string]$path, $params){
     New-AzSubscriptionDeployment -Name "$deploymentName" -Location "$location" -TemplateFile "$armPath" -TemplateParameterObject $params -SkipTemplateParameterPrompt
 
   Write-Host "Removing Arm template json"
-  rm "$armPath"
+  Remove-Item "$armPath"
 }
 
 function Remove-BicepFeature($resourceGroupName){
