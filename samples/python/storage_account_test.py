@@ -7,42 +7,27 @@ class ExampleTest(unittest.TestCase):
         print("storage_account_test")
         resource_group = None
         try:
-            print("try")
             # Assemble
-            print("assemble")
-
-            # Provision the resource group
             azure_subscription = "random_uuid"
-            resource_group = resource_group.create(azure_subscription)
             resource_group = benchpress.create_resource_group(azure_subscription)
 
-            # Act
-            print("act")
+            storage_account_params = { "a": 1, "b": 2, "c": 3 }
 
-            # Provision the Storage Account
-            storage_account_params = {
-                "a": 1,
-                "b": 2,
-                "c": 3
-            }
-            status = storage_account.create(resource_group, storage_account_params)
+            # Act
+            sa_status = storage_account.create(resource_group, storage_account_params)
             
             # Assert
-            # Verify the resource group and contained resources were created, with the correct parameters
-            print("assert")
-            # assert.assert_true(benchpress.resource_group_exists(resource_group))
-            self.assertTrue(status.SUCCESS)
-            # assert.assert_equals(status.sa_property_a, storage_account_params.a)
-            # assert.assert_equals(status.sa_property_b, storage_account_params.b)
-            # assert.assert_equals(status.sa_property_c, storage_account_params.c)
-
-            # dev only
-            raise ValueError("dev only exception for positively asserting try-finally works") 
+            self.assertTrue(benchpress.resource_group_exists(resource_group))
+            self.assertTrue(sa_status.SUCCESS)
+            self.assertEqual(sa_status.a, storage_account_params["a"])
+            self.assertEqual(sa_status.b, storage_account_params["b"])
+            self.assertEqual(sa_status.c, storage_account_params["c"])
         except:
             # CRITIAL: We MUST include an "except" block or "finally" will not run
-            print("except")
+            # Consider adding a linting rule to enforce try: except: finally being present
+            pass
         finally:
-            # Destroy the provisioned resourvce group
+            # Fail gracefully no matter if the test ran to completion or not
             benchpress.destroy(resource_group)
 
 
