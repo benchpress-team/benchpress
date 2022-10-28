@@ -1,10 +1,11 @@
 class Response():
+
     def __init__(self) -> None:
-        self.SUCCESS = False
+        self.success = False
         self.a = None
         self.b = None
         self.c = None
-        pass
+
 
 def create(resource_group: str, params: dict) -> Response:
     if resource_group and params:
@@ -12,3 +13,7 @@ def create(resource_group: str, params: dict) -> Response:
         response.SUCCESS = True
         return response
     return Response()
+
+
+if __name__ == "__main__":
+    pass

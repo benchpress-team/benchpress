@@ -1,14 +1,14 @@
+import uuid
 import unittest
 import mock_benchpress as benchpress
 import mock_storage_account_grpc_interface as storage_account
 
 class ExampleTest(unittest.TestCase):
     def test_storage_account(self):
-        print("storage_account_test")
         resource_group = None
         try:
             # Assemble
-            azure_subscription = "random_uuid"
+            azure_subscription = uuid.uuid1()
             resource_group = benchpress.create_resource_group(azure_subscription)
 
             storage_account_params = { "a": 1, "b": 2, "c": 3 }
@@ -24,7 +24,7 @@ class ExampleTest(unittest.TestCase):
             self.assertEqual(sa_status.c, storage_account_params["c"])
         except:
             # CRITIAL: We MUST include an "except" block or "finally" will not run
-            # Consider adding a linting rule to enforce try: except: finally being present
+            # Consider adding a linting rule to enforce try: except: finally
             pass
         finally:
             # Fail gracefully no matter if the test ran to completion or not
