@@ -1,5 +1,4 @@
 class Response():
-
     def __init__(self) -> None:
         self.success = False
         self.a = None
@@ -10,7 +9,7 @@ class Response():
 def create(resource_group: str, params: dict) -> Response:
     if resource_group and params:
         response = Response()
-        response.SUCCESS = True
+        response.success = True
         return response
     return Response()
 
