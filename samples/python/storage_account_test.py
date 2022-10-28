@@ -18,7 +18,7 @@ class ExampleTest(unittest.TestCase):
             
             # Assert
             self.assertTrue(benchpress.resource_group_exists(resource_group))
-            self.assertTrue(sa_status.SUCCESS)
+            self.assertTrue(sa_status.success)
             self.assertEqual(sa_status.a, storage_account_params["a"])
             self.assertEqual(sa_status.b, storage_account_params["b"])
             self.assertEqual(sa_status.c, storage_account_params["c"])
