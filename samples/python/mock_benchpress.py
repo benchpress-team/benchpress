@@ -7,8 +7,7 @@ def create_resource_group(azure_subscription: str) -> str:
     return "dummy_resource_group_id"
 
 def destroy(resource_group: str):
-    print("ResourceGroup: " + resource_group)
-    pass
+    print("Deleting ResourceGroup: " + resource_group)
 
 if __name__ == "__main__":
     pass
