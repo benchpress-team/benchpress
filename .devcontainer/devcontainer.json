@@ -7,7 +7,6 @@
 		  "VARIANT": "6.0"
 		}
 	},
-
 	// Configure tool-specific properties.
 	"customizations": {
 		// Configure properties specific to VS Code.
@@ -39,7 +38,6 @@
 
 				// C#
 				"ms-dotnettools.csharp",
-
 				// Python
 				"ms-python.python",
 				"ms-python.vscode-pylance",
