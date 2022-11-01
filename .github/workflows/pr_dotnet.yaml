@@ -6,7 +6,7 @@ on:
       - "framework/dotnet/**"
       - "samples/dotnet/**"
   pull_request:
-    paths-ignore:
+    paths:
       - "framework/dotnet/**"
       - "samples/dotnet/**"
     branches:

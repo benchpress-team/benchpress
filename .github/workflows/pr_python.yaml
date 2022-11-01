@@ -6,7 +6,7 @@ on:
       - "framework/python/**"
       - "samples/python/**"
   pull_request:
-    paths-ignore:
+    paths:
       - "framework/python/**"
       - "samples/python/**"
     branches:

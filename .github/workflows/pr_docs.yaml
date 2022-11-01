@@ -6,7 +6,7 @@ on:
       - "docs/**.md"
       - "**.md"
   pull_request:
-    paths-ignore:
+    paths:
       - "docs/**.md"
       - "**.md"
     branches:
