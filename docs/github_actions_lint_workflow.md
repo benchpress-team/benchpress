@@ -84,11 +84,11 @@ on:
       - "samples/dotnet/**"
 ```
 
-When pull_request is created, following directories gets skipped from linting to allow the merge
+When pull_request is created to main branch, only specific directories gets linted
 
 ```yaml
 pull_request:
-    paths-ignore:
+    paths:
       - "framework/dotnet/**"
       - "samples/dotnet/**"
     branches:
